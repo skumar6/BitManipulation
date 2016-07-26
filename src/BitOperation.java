@@ -49,11 +49,27 @@ public class BitOperation {
 //        int n= 33;
 //        System.out.println(parityFinder(n));
 
-        int n = 33;
-        System.out.println(inttoBin(n));
-        System.out.println(Integer.toBinaryString(n));
+//        int n = 33;
+////        System.out.println(inttoBin(n));
+//        System.out.println(Integer.toBinaryString(n));
+//        System.out.println(Integer.toBinaryString(swapNibbles(n)));
+
+        int n = 31;
+        int k =2;
+        System.out.println(Integer.toBinaryString(turnoffKth(k, n)));
 
 
+
+    }
+
+    public static int turnoffKth(int k, int n){
+        int mask = 1<<(k-1);
+        mask = ~mask;
+        return n & mask;
+    }
+
+    public static int swapNibbles(int n){
+         return (n & 0x0F)<<4 | (n & 0xF0)>>4;
     }
 
     public static String inttoBin(int n){
