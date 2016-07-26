@@ -54,15 +54,35 @@ public class BitOperation {
 //        System.out.println(Integer.toBinaryString(n));
 //        System.out.println(Integer.toBinaryString(swapNibbles(n)));
 
-        int n = 31;
+        int n = 0x4ffffff2;
+        System.out.println(Integer.toBinaryString(n));
         int k =2;
-        System.out.println(Integer.toBinaryString(turnoffKth(k, n)));
+//        System.out.println(Integer.toBinaryString(turnofKth(k, n)));
+        System.out.println(isPalindrome(n));
+
 
 
 
     }
 
-    public static int turnoffKth(int k, int n){
+    public static boolean isKthBitSet(int n, int k){
+        return  (n & (1<<(k-1))) ==1 ? true:false;
+    }
+
+    public static boolean isPalindrome(int n){
+        int i=1;
+        int r =32;
+        while(i<r){
+            if(isKthBitSet(n,i) != isKthBitSet(n,r)){
+                return false;
+            }
+            i++;
+            r--;
+        }
+        return true;
+    }
+
+    public static int turnofKth(int k, int n){
         int mask = 1<<(k-1);
         mask = ~mask;
         return n & mask;
