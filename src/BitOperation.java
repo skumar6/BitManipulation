@@ -46,10 +46,28 @@ public class BitOperation {
 //        int num =32;
 //        System.out.println(multipleOf3(num));
 
-        int n= 33;
-        System.out.println(parityFinder(n));
+//        int n= 33;
+//        System.out.println(parityFinder(n));
+
+        int n = 33;
+        System.out.println(inttoBin(n));
+        System.out.println(Integer.toBinaryString(n));
 
 
+    }
+
+    public static String inttoBin(int n){
+        String str = "";
+        while(n != 0){
+            str = str+ (n%2);
+            n = n/2;
+        }
+        return str;
+    }
+
+    public static boolean powerof2(int n){
+        if(n==0) return false;
+        return  (n & (n-1))==0;
     }
 
     public static boolean parityFinder(int n){
